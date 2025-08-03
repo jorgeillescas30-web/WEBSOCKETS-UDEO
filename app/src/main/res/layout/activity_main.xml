@@ -33,7 +33,7 @@
                 android:elevation="8dp"
                 android:clipToPadding="false"
                 android:clipChildren="false"
-                android:layout_marginRight="75dp">
+                android:layout_marginRight="220dp">
 
                 <!-- Fila 0 -->
                 <View
@@ -113,7 +113,8 @@
             android:gravity="center"
             android:background="#222"
             android:padding="20dp"
-            android:elevation="6dp">
+            android:elevation="6dp"
+            android:layout_marginLeft="50dp">
 
             <Button
                 android:id="@+id/right90"
@@ -154,6 +155,7 @@
         style="@style/StopButton"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
+        android:layout_marginLeft="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
