@@ -1,8 +1,13 @@
 <resources>
-    <string name="app_name">WEBSOCKETS1</string>
-    <string name="btn_up">Up</string>
-    <string name="btn_left">Left</string>
-    <string name="btn_down">Down</string>
-    <string name="btn_right">Right</string>
-    <string name="btn_stop">Action</string>
+    <string name="app_name">ROBOT_SUMO</string>
+    <string name="btn_up">Arriba</string>
+    <string name="btn_down">Abajo</string>
+    <string name="btn_left">Izquierda</string>
+    <string name="btn_right">Derecha</string>
+    <string name="btn_stop">Detener</string>
+    <string name="btn_right90">Girar a la Derecha 90°</string>
+    <string name="btn_right180">Girar a la Derecha 180°</string>
+    <string name="btn_left90">Girar a la Izquierda 90°</string>
+    <string name="btn_left180">Girar a la Izquierda 180°</string>
+
 </resources>

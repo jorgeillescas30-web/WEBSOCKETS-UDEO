@@ -1,55 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/gamepadLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
 
-    <!-- Botón ARRIBA -->
-    <Button
-        android:id="@+id/btnUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_up" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/gamepadLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="#eeeeee">
 
-    <!-- Botones IZQUIERDA - ABAJO - DERECHA -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp">
+        <!-- Contenedor horizontal del gamepad -->
+        <LinearLayout
+            android:id="@+id/gamepadContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btn_stop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <Button
-            android:id="@+id/btnLeft"
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/gamepadGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:rowCount="3"
+                app:columnCount="3"
+                android:padding="16dp"
+                android:background="#222"
+                android:elevation="8dp"
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:layout_marginRight="75dp">
+
+                <!-- Fila 0 -->
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:visibility="invisible"
+                    app:layout_row="0"
+                    app:layout_column="0" />
+
+                <Button
+                    android:id="@+id/btnUp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:text="▲"
+                    style="@style/GamepadButton"
+                    app:layout_row="0"
+                    app:layout_column="1" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:visibility="invisible"
+                    app:layout_row="0"
+                    app:layout_column="2" />
+
+                <!-- Fila 1 -->
+                <Button
+                    android:id="@+id/btnLeft"
+                    android:layout_width="75dp"
+                    android:layout_height="60dp"
+                    android:text="◄"
+                    style="@style/GamepadButton"
+                    app:layout_row="1"
+                    app:layout_column="0" />
+
+                <!-- Centro (vacío visual) -->
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:layout_row="1"
+                    app:layout_column="1" />
+
+                <Button
+                    android:id="@+id/btnRight"
+                    android:layout_width="75dp"
+                    android:layout_height="60dp"
+                    android:text="►"
+                    style="@style/GamepadButton"
+                    app:layout_row="1"
+                    app:layout_column="2" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:visibility="invisible"
+                    app:layout_row="2"
+                    app:layout_column="0" />
+
+                <Button
+                    android:id="@+id/btnDown"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:text="▼"
+                    style="@style/GamepadButton"
+                    app:layout_row="2"
+                    app:layout_column="1"
+                    android:typeface="sans"
+                    />
+
+            </androidx.gridlayout.widget.GridLayout>
+
+        <!-- Botones especiales -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btn_left" />
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#222"
+            android:padding="20dp"
+            android:elevation="6dp">
 
-        <Button
-            android:id="@+id/btnDown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_down"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" />
+            <Button
+                android:id="@+id/right90"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="Girar Der 90°"
+                style="@style/SpecialButton" />
 
-        <Button
-            android:id="@+id/btnRight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_right" />
+            <Button
+                android:id="@+id/right180"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="Girar Der 180°"
+                style="@style/SpecialButton" />
+
+            <Button
+                android:id="@+id/left90"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="Girar Izq 90°"
+                style="@style/SpecialButton" />
+
+            <Button
+                android:id="@+id/left180"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="Girar Izq 180°"
+                style="@style/SpecialButton" />
+        </LinearLayout>
     </LinearLayout>
 
-    <!-- Botón de acción -->
+    <!-- Botón STOP -->
     <Button
         android:id="@+id/btn_stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_stop" />
-</LinearLayout>
+        android:text="STOP"
+        style="@style/StopButton"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
